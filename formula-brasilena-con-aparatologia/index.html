@@ -1,139 +1,287 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <!-- Presell builder by theMinerX.com -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="{description}" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="description" content="[object Object]" />
     <meta name="keywords" content="FÓRMULA BRASILEÑA CON APARATOLOGÍA" />
     <meta name="robots" content="noindex, nofollow" />
-    <meta http-equiv="Content-Language" content="es" />
-    <script type="application/json" id="adsx_info">{"url":"https://promoactionnow5.store/formula-brasilena-con-aparatologia","affiliate_link":"https://go.hotmart.com/I104780521W","platformTracking":"","platformSource":"hotmart","type":"more18","product_name":"FÓRMULA BRASILEÑA CON APARATOLOGÍA","language":"es","created_at":"2026-05-28T12:04:19.618Z","unique_id":""}</script>
+    <script type="application/json" id="adsx_info">{"url":"https://promoactionnow5.store/formula-brasilena-con-aparatologia","affiliate_link":"https://go.hotmart.com/I104780521W","platformTracking":"","platformSource":"hotmart","type":"quiz","product_name":"FÓRMULA BRASILEÑA CON APARATOLOGÍA","language":"es","created_at":"2026-05-28T12:07:57.335Z","unique_id":""}</script>
     <title>FÓRMULA BRASILEÑA CON APARATOLOGÍA</title>
     <style>
-      body {
+      * {
         margin: 0;
         padding: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        background-color: #111111;
-        font-family: Arial, sans-serif;
+        box-sizing: border-box;
       }
 
-      .page-main {
-        flex: 1 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .dark {
+        background-color: #1a1a1a;
+        color: white;
+      }
+
+      .light {
+        background-color: #f0f0f0;
+        color: #333;
+      }
+
+      html,
+      body {
+        height: 100%;
         width: 100%;
-        box-sizing: border-box;
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
       }
 
       .container {
-        box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.5);
-        /* Sombra branca */
-        padding: 20px;
-        border-radius: 10px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        width: 90%;
-        max-width: 500px;
-        box-sizing: border-box;
+        padding: 20px;
       }
 
-      h1 {
-        font-size: 1.5em;
-        margin-bottom: 10px;
+      .quiz-presell-headline {
+        font-size: clamp(1.25rem, 4vw, 2rem);
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+        max-width: 100%;
+        word-wrap: break-word;
       }
 
-      p {
-        font-size: 1em;
-        margin-bottom: 20px;
+      .quiz-presell-subheadline {
+        font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+        font-weight: 400;
+        line-height: 1.35;
+        margin-bottom: 5rem;
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+
+      .light .quiz-presell-headline {
+        color: #1a1a1a;
+      }
+
+      .light .quiz-presell-subheadline {
+        color: #444;
+      }
+
+      .dark .quiz-presell-headline {
+        color: #fff;
+      }
+
+      .dark .quiz-presell-subheadline {
+        color: #ccc;
+      }
+
+      .progress {
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        margin-bottom: 1rem;
+      }
+
+      .question {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        margin-bottom: 2rem;
+        opacity: 0;
+        position: relative;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+
+      .slide-in {
+        animation-name: slideInFromRight;
+      }
+
+      .slide-out {
+        animation-name: slideOutToLeft;
+      }
+
+      @keyframes slideInFromRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideOutToLeft {
+        from {
+          transform: translateX(0);
+          opacity: 1;
+        }
+
+        to {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
       }
 
       .buttons {
         display: flex;
         justify-content: center;
-        gap: 10px;
+        gap: 1rem;
       }
 
       button {
-        padding: 10px 20px;
-        font-size: 1em;
+        padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2rem);
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
         cursor: pointer;
         border: none;
         border-radius: 5px;
-        text-transform: uppercase;
+        transition: background-color 0.3s;
       }
 
-      @media (max-width: 600px) {
-        h1 {
-          font-size: 1.2em;
+      .loading-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .loading-icon {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #fff;
+        border-top: 4px solid #1a1a1a;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
         }
 
-        p {
-          font-size: 0.9em;
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-height: 400px) {
+        .progress {
+          margin-bottom: 0.5rem;
         }
 
-        button {
-          font-size: 0.9em;
-          padding: 8px 15px;
+        .question {
+          margin-bottom: 1rem;
+        }
+
+        .buttons {
+          gap: 0.5rem;
         }
       }
       .disclaimer {
-        flex-shrink: 0;
-        width: 100%;
-        max-width: 560px;
-        margin: 0 auto;
-        padding: 12px 16px 20px;
-        box-sizing: border-box;
-        font-size: 0.7rem;
+          font-size: .7rem;
+        /* font-size: 0.8em; */
         text-align: center;
-      }
+        }
     </style>
-    <script>function click() {
+    <script>
+    function click() {
       document.getElementById("goToPage").click();
-    }</script>
+    }
+    </script>
     
 
   </head>
 
-  <body>
-    <div class="page-main">
-      <div
-        class="container"
-        id="clicable"
-        style="background-color: #1a1a1a; color: #ffffff;"
-      >
-        <h1>Este es un sitio web para adultos</h1>
-        <p>El contenido de este sitio web está restringido a adultos. Al entrar, usted confirma que tiene al menos 18 años o la mayoría de edad en la jurisdicción de su residencia.</p>
-        <div class="buttons">
-          <button
-            type="button"
-            class="enter-btn"
-            style="background-color: #e70202; color: #ffffff;"
-          >
-            Tengo 18 años o más - Entrar
-          </button>
-          <button
-            type="button"
-            class="exit-btn"
-            style="background-color: #555555; color: #ffffff;"
-          >
-            Tengo menos de 18 años - Salir
-          </button>
-        </div>
+  <body class="light">
+    <div class="container">
+      
+      
+      <div id="progress" class="progress"></div>
+      <div id="question" class="question"></div>
+      <div class="buttons">
+        <button
+          type="button"
+          class="btn-nao"
+          style="background-color: #e74c3c; color: #ffffff;"
+          onclick="nextQuestion()"
+        >
+          No
+        </button>
+        <button
+          type="button"
+          class="btn-sim"
+          style="background-color: #2ecc71; color: #ffffff;"
+          onclick="nextQuestion()"
+        >
+          Sí
+        </button>
       </div>
-
-      <a id="goToPage" aria-label="go to your page" href="https://go.hotmart.com/I104780521W" data-mxhref="1"></a>
     </div>
+
     <script>
-      document
-        .getElementById('clicable')
-        .addEventListener('click', function (e) {
-          e.stopPropagation();
+      const questions = ["¿cuántos kilos?"];
+
+      let currentQuestionIndex = 0;
+      const questionElement = document.getElementById('question');
+      const progressElement = document.getElementById('progress');
+      const containerElement = document.querySelector('.container');
+
+      function updateProgress() {
+        progressElement.textContent = `Responda ${
+          currentQuestionIndex + 1
+        }/${questions.length}..`;
+      }
+
+      function showQuestion() {
+        questionElement.textContent = questions[currentQuestionIndex];
+        questionElement.classList.remove('slide-out');
+        questionElement.classList.add('slide-in');
+        updateProgress();
+      }
+
+      function showLoading() {
+        containerElement.innerHTML = `
+                <div class="loading-container">
+                    <div class="progress">Un momento, verificando tus respuestas...</div>
+                    <div class="loading-icon"></div>
+                </div>
+            `;
+        setTimeout(showFinalMessage, 1500);
+      }
+
+      function showFinalMessage() {
+        containerElement.innerHTML = `
+                <div class="progress">Gracias! Te redireccionaremos pronto...</div>
+            `;
+        setTimeout(() => {
           click();
-        });
+        }, 1000);
+      }
+
+      function nextQuestion() {
+        questionElement.classList.remove('slide-in');
+        questionElement.classList.add('slide-out');
+
+        setTimeout(() => {
+          currentQuestionIndex++;
+          if (currentQuestionIndex < questions.length) {
+            showQuestion();
+          } else {
+            showLoading(); // Última pergunta respondida
+          }
+        }, 500);
+      }
+
+      showQuestion();
     </script>
+    <a id="goToPage" aria-label="go to your page" href="https://go.hotmart.com/I104780521W" data-mxhref="1"></a>
     
     <div class="disclaimer" style="color: #666666;"></div>
   </body>
